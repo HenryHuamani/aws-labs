@@ -1,44 +1,29 @@
-# aws-labs
+AWS Cloud & DevOps Roadmap
 
-Bienvenido a mi repositorio de laboratorios prácticos de AWS.
+Cloud Engineer | DevOps Engineer | AWS Solutions Architect
 
-Este repositorio documenta mi proceso de aprendizaje para convertirme en AWS DevOps Solutions Architect.
+Repositorio donde documento mi proceso de aprendizaje práctico en AWS, DevOps e Infraestructura como Código mediante laboratorios reales, documentación técnica y proyectos.
 
-## Objetivos
-
-- Aprender AWS desde cero.
-- Obtener certificaciones oficiales.
-- Construir proyectos reales.
-- Documentar buenas prácticas.
-- Crear un portafolio profesional.
-
----
-
-## Roadmap
-
-- [x] Lab 01 - IAM
-- [ ] Lab 02 - EC2
-- [ ] Lab 03 - S3
-- [ ] Lab 04 - VPC
-- [ ] Lab 05 - RDS
-- [ ] Lab 06 - CloudWatch
-- [ ] Lab 07 - IAM Roles
-- [ ] Lab 08 - Lambda
-- [ ] Lab 09 - ECS
-- [ ] Lab 10 - EKS
-
----
-
-## Tecnologías
-
-- AWS
-- IAM
-- EC2
-- S3
-- VPC
-- CloudWatch
-- Docker
-- Kubernetes
-- Terraform
-- Git
-- CI/CD
+| Fase         | Laboratorio     | Estado |
+| ------------ | --------------- | :----: |
+| Fundamentos  | IAM             |    ✅   |
+| Fundamentos  | EC2             |    ✅   |
+| Fundamentos  | S3              |    ⬜   |
+| Redes        | VPC             |    ⬜   |
+| Redes        | Subnets         |    ⬜   |
+| Redes        | Security Groups |    ⬜   |
+| Redes        | NAT Gateway     |    ⬜   |
+| Compute      | Auto Scaling    |    ⬜   |
+| Compute      | Load Balancer   |    ⬜   |
+| Storage      | EBS             |    ⬜   |
+| Storage      | EFS             |    ⬜   |
+| Database     | RDS             |    ⬜   |
+| Monitoring   | CloudWatch      |    ⬜   |
+| Monitoring   | CloudTrail      |    ⬜   |
+| DevOps       | Docker          |    ⬜   |
+| DevOps       | Kubernetes      |    ⬜   |
+| DevOps       | Terraform       |    ⬜   |
+| DevOps       | GitHub Actions  |    ⬜   |
+| DevOps       | Jenkins         |    ⬜   |
+| DevOps       | Ansible         |    ⬜   |
+| Arquitectura | Proyecto Final  |    ⬜   |
