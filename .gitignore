@@ -1,0 +1,30 @@
+# AWS
+*.pem
+*.ppk
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Windows
+Thumbs.db
+
+# macOS
+.DS_Store
+
+# Environment
+.env
+.env.*
+
+# Python
+__pycache__/
+
+# Node
+node_modules/
