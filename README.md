@@ -17,63 +17,101 @@
 
 # 📖 About this Project
 
-This repository documents my professional learning journey in **Amazon Web Services (AWS)**, **Cloud Engineering**, **DevOps**, **Infrastructure as Code**, and **Cloud Architecture**.
+This repository documents my professional learning journey in **Amazon Web Services (AWS)**, **Cloud Engineering**, **DevOps**, **Infrastructure as Code (IaC)**, and **Cloud Architecture** through hands-on laboratories, technical documentation, architecture diagrams, and real-world projects.
 
-The objective is to build practical experience through real-world laboratories, technical documentation, architecture diagrams, and enterprise-level projects.
-
-This portfolio is being developed as preparation for professional roles such as:
-
-- AWS Cloud Engineer
-- DevOps Engineer
-- AWS Solutions Architect
-- Cloud Infrastructure Engineer
+The objective is to build a professional portfolio that demonstrates practical cloud engineering skills and supports future AWS certifications and technical interviews.
 
 ---
 
-# 🎯 Learning Goals
+# 🎯 Professional Goals
 
 - Master AWS core services.
-- Design secure cloud architectures.
+- Design secure and scalable cloud architectures.
 - Build Infrastructure as Code using Terraform.
 - Deploy applications using Docker and Kubernetes.
 - Implement CI/CD pipelines.
-- Build an enterprise cloud platform from scratch.
+- Build a production-ready enterprise cloud platform.
 
 ---
 
-# 📚 Roadmap
+# 🚀 Learning Dashboard
 
-| Phase | Topic | Status |
-|-------|-------|:------:|
-| Foundations | IAM | ✅ |
-| Foundations | EC2 | ✅ |
-| Foundations | S3 | ⬜ |
-| Foundations | VPC | ⬜ |
-| Foundations | RDS | ⬜ |
-| Foundations | CloudWatch | ⬜ |
-| Foundations | IAM Roles | ⬜ |
-| DevOps | Docker | ⬜ |
-| DevOps | Terraform | ⬜ |
-| DevOps | Kubernetes | ⬜ |
-| DevOps | GitHub Actions | ⬜ |
-| DevOps | Jenkins | ⬜ |
-| DevOps | Ansible | ⬜ |
-| Final Project | Enterprise Platform | ⬜ |
+| Level | Area | Progress |
+|--------|------|:--------:|
+| Level 1 | Cloud Foundations | 🟨 |
+| Level 2 | Cloud Networking | ⬜ |
+| Level 3 | Cloud Compute | ⬜ |
+| Level 4 | Cloud Databases | ⬜ |
+| Level 5 | Containers | ⬜ |
+| Level 6 | Infrastructure as Code | ⬜ |
+| Level 7 | Kubernetes | ⬜ |
+| Level 8 | DevOps | ⬜ |
+| Level 9 | Monitoring & Observability | ⬜ |
+| Level 10 | Enterprise Architecture | ⬜ |
 
 ---
 
-# 🛠 Technologies
+# 📚 Documentation
 
-- Amazon Web Services
+| Document | Description |
+|----------|-------------|
+| 📖 [ROADMAP.md](ROADMAP.md) | Complete learning roadmap |
+| 📋 [TEMPLATE.md](TEMPLATE.md) | Laboratory template |
+| 📝 [CHANGELOG.md](CHANGELOG.md) | Project version history |
+
+---
+
+# 🧪 Hands-on Laboratories
+
+| Laboratory | Description | Status |
+|------------|-------------|:------:|
+| [01 - AWS IAM](labs/01-IAM/README.md) | Identity and Access Management | ✅ |
+| [02 - Amazon EC2](labs/02-EC2/README.md) | Virtual Server Deployment and SSH | ✅ |
+| 03 - Amazon S3 | Object Storage | ⬜ |
+| 04 - Amazon VPC | Networking | ⬜ |
+| 05 - Amazon RDS | Relational Database | ⬜ |
+| 06 - IAM Roles | Roles and Permissions | ⬜ |
+| 07 - CloudWatch | Monitoring | ⬜ |
+| 08 - CloudTrail | Auditing | ⬜ |
+| 09 - Docker | Containers | ⬜ |
+| 10 - Terraform | Infrastructure as Code | ⬜ |
+| 11 - Kubernetes | Container Orchestration | ⬜ |
+| 12 - GitHub Actions | CI/CD | ⬜ |
+| 13 - Jenkins | CI/CD | ⬜ |
+| 14 - Ansible | Configuration Management | ⬜ |
+| 15 - Enterprise Project | Production AWS Platform | ⬜ |
+
+---
+
+# 🛠️ Technologies
+
+### Cloud
+
+- Amazon Web Services (AWS)
+
+### Infrastructure
+
+- Terraform
 - Linux
-- Git
-- GitHub
+- Bash
+
+### Containers
+
 - Docker
 - Kubernetes
-- Terraform
+
+### DevOps
+
+- Git
+- GitHub
 - GitHub Actions
-- Bash
-- PowerShell
+- Jenkins
+
+### Monitoring
+
+- CloudWatch
+- Prometheus
+- Grafana
 
 ---
 
@@ -82,37 +120,35 @@ This portfolio is being developed as preparation for professional roles such as:
 ```text
 aws-cloud-devops-portfolio
 │
-├── docs
-├── labs
-├── diagrams
-├── scripts
-└── projects
+├── README.md
+├── ROADMAP.md
+├── TEMPLATE.md
+├── CHANGELOG.md
+├── docs/
+├── labs/
+├── diagrams/
+├── scripts/
+└── projects/
 ```
 
 ---
 
-# 📜 AWS Certifications Roadmap
+# 🎓 Certification Roadmap
 
-- AWS Certified Cloud Practitioner
-- AWS Solutions Architect – Associate
-- AWS Developer – Associate
-- AWS SysOps Administrator – Associate
-- AWS DevOps Engineer – Professional
+- ⬜ AWS Certified Cloud Practitioner
+- ⬜ AWS Solutions Architect – Associate
+- ⬜ AWS Developer – Associate
+- ⬜ AWS SysOps Administrator – Associate
+- ⬜ HashiCorp Terraform Associate
+- ⬜ AWS DevOps Engineer – Professional
 
 ---
 
-# 📈 Progress
-
-Current Version
+# 📊 Current Version
 
 ```text
-v0.1.0
+v1.0.0
 ```
-
-Completed Labs
-
-- ✅ Lab 01 - IAM
-- ✅ Lab 02 - EC2
 
 ---
 
@@ -120,10 +156,10 @@ Completed Labs
 
 **Henry Junior Huamani Huanuqueño**
 
-Peru 🇵🇪
+🇵🇪 Peru
 
-Software Architect | Cloud & DevOps Engineer
+Software Architect • Cloud & DevOps Engineer
 
 ---
 
-> This repository is continuously updated as part of my AWS and DevOps professional development roadmap.
+> 🚀 This repository is continuously updated as part of my professional journey to become an AWS Solutions Architect and DevOps Engineer.
