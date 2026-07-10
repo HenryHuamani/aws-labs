@@ -1,72 +1,68 @@
-# ☁️ AWS Cloud & DevOps Roadmap
+<div align="center">
 
-![AWS](docs/banner.png)
+# ☁️ AWS Cloud & DevOps Portfolio
 
-## 📖 Descripción
+### Hands-on Labs • Cloud Architecture • Infrastructure as Code • CI/CD
 
-Este repositorio documenta mi proceso de aprendizaje práctico en Amazon Web Services (AWS), DevOps e Infraestructura como Código mediante laboratorios reales, documentación técnica y proyectos.
+![Status](https://img.shields.io/badge/Status-In%20Progress-orange)
+![AWS](https://img.shields.io/badge/AWS-Cloud-orange)
+![Terraform](https://img.shields.io/badge/Terraform-IaC-623CE4)
+![Docker](https://img.shields.io/badge/Docker-Containers-2496ED)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-Orchestration-326CE5)
+![GitHub](https://img.shields.io/badge/GitHub-Portfolio-black)
 
-El objetivo es desarrollar las habilidades necesarias para desempeñarme como:
+</div>
+
+---
+
+# 📖 About this Project
+
+This repository documents my professional learning journey in **Amazon Web Services (AWS)**, **Cloud Engineering**, **DevOps**, **Infrastructure as Code**, and **Cloud Architecture**.
+
+The objective is to build practical experience through real-world laboratories, technical documentation, architecture diagrams, and enterprise-level projects.
+
+This portfolio is being developed as preparation for professional roles such as:
 
 - AWS Cloud Engineer
 - DevOps Engineer
 - AWS Solutions Architect
-
-Cada laboratorio incluye:
-
-- Arquitectura
-- Documentación técnica
-- Evidencias
-- Problemas encontrados
-- Soluciones aplicadas
-- Buenas prácticas
-- Comandos utilizados
-- Lecciones aprendidas
+- Cloud Infrastructure Engineer
 
 ---
 
-# 🚀 Roadmap
+# 🎯 Learning Goals
 
-| Fase | Servicio | Estado |
-|------|----------|:------:|
-| AWS Foundations | IAM | ✅ |
-| AWS Foundations | EC2 | ✅ |
-| AWS Foundations | S3 | ⬜ |
-| AWS Foundations | VPC | ⬜ |
-| AWS Foundations | RDS | ⬜ |
-| AWS Foundations | EBS | ⬜ |
-| AWS Foundations | CloudWatch | ⬜ |
-| AWS Foundations | CloudTrail | ⬜ |
+- Master AWS core services.
+- Design secure cloud architectures.
+- Build Infrastructure as Code using Terraform.
+- Deploy applications using Docker and Kubernetes.
+- Implement CI/CD pipelines.
+- Build an enterprise cloud platform from scratch.
+
+---
+
+# 📚 Roadmap
+
+| Phase | Topic | Status |
+|-------|-------|:------:|
+| Foundations | IAM | ✅ |
+| Foundations | EC2 | ✅ |
+| Foundations | S3 | ⬜ |
+| Foundations | VPC | ⬜ |
+| Foundations | RDS | ⬜ |
+| Foundations | CloudWatch | ⬜ |
+| Foundations | IAM Roles | ⬜ |
 | DevOps | Docker | ⬜ |
-| DevOps | Kubernetes | ⬜ |
 | DevOps | Terraform | ⬜ |
+| DevOps | Kubernetes | ⬜ |
 | DevOps | GitHub Actions | ⬜ |
 | DevOps | Jenkins | ⬜ |
 | DevOps | Ansible | ⬜ |
-| Arquitectura | Proyecto Final | ⬜ |
+| Final Project | Enterprise Platform | ⬜ |
 
 ---
 
-# 📂 Laboratorios
-
-| Laboratorio | Descripción |
-|-------------|-------------|
-| 01-IAM | Administración de identidades y accesos |
-| 02-EC2 | Implementación y administración de instancias |
-| 03-S3 | Almacenamiento de objetos |
-| 04-VPC | Redes privadas virtuales |
-| 05-RDS | Bases de datos administradas |
-| 06-IAM Roles | Roles y permisos |
-| 07-CloudWatch | Monitoreo |
-| 08-Docker | Contenedores |
-| 09-Terraform | Infraestructura como Código |
-| 10-Kubernetes | Orquestación |
-| 11-GitHub Actions | CI/CD |
-| Proyecto Final | Plataforma completa AWS |
-
----
-
-# 🛠 Tecnologías
+# 🛠 Technologies
 
 - Amazon Web Services
 - Linux
@@ -81,24 +77,53 @@ Cada laboratorio incluye:
 
 ---
 
-# 🎯 Objetivo
+# 📂 Repository Structure
 
-Construir una plataforma completa en AWS siguiendo buenas prácticas de arquitectura cloud, automatización, seguridad y DevOps.
+```text
+aws-cloud-devops-portfolio
+│
+├── docs
+├── labs
+├── diagrams
+├── scripts
+└── projects
+```
 
 ---
 
-# 📜 Certificaciones objetivo
+# 📜 AWS Certifications Roadmap
 
 - AWS Certified Cloud Practitioner
-- AWS Certified Solutions Architect – Associate
-- AWS Certified Developer – Associate
-- AWS Certified SysOps Administrator – Associate
-- AWS Certified DevOps Engineer – Professional
+- AWS Solutions Architect – Associate
+- AWS Developer – Associate
+- AWS SysOps Administrator – Associate
+- AWS DevOps Engineer – Professional
 
 ---
 
-# 👨‍💻 Autor
+# 📈 Progress
+
+Current Version
+
+```text
+v0.1.0
+```
+
+Completed Labs
+
+- ✅ Lab 01 - IAM
+- ✅ Lab 02 - EC2
+
+---
+
+# 👨‍💻 Author
 
 **Henry Junior Huamani Huanuqueño**
 
-Perú 🇵🇪
+Peru 🇵🇪
+
+Software Architect | Cloud & DevOps Engineer
+
+---
+
+> This repository is continuously updated as part of my AWS and DevOps professional development roadmap.
