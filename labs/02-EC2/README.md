@@ -108,6 +108,15 @@ ls
 
 ---
 
+## Additional Documentation
+
+- [Technical Notes](notes.md)
+- [Commands](commands.md)
+- [Interview Questions](interview-questions.md)
+- [Troubleshooting Guide](troubleshooting.md)
+
+---
+
 ## Próximos pasos
 
 En el siguiente laboratorio se trabajará con Amazon S3 para comprender el almacenamiento de objetos en AWS.
