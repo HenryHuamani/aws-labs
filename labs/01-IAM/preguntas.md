@@ -1,65 +1,48 @@
-# Interview Questions – Amazon EC2
 
-## What is Amazon EC2?
+```markdown
+# Interview Questions – AWS IAM
 
-Amazon EC2 provides scalable virtual servers in the AWS cloud.
+## 1. What is AWS IAM?
 
----
+IAM is the AWS service used to manage identities, authentication and permissions for access to AWS resources.
 
-## What is an AMI?
+## 2. What is the difference between the root user and an IAM user?
 
-An Amazon Machine Image used to launch EC2 instances.
+The root user has unrestricted access to the AWS account and should only be used for exceptional account-level tasks.
 
----
+An IAM user is created for daily access and receives only the permissions required for its responsibilities.
 
-## What is the difference between stopping and terminating an instance?
+## 3. What is the difference between an IAM user and an IAM role?
 
-Stopping preserves the instance and attached EBS volumes.
+An IAM user normally represents a person or application with long-term credentials.
 
-Terminating permanently deletes the instance.
+An IAM role provides temporary permissions and is assumed by users, applications or AWS services.
 
----
+## 4. What is an IAM policy?
 
-## What is a Security Group?
+An IAM policy is a JSON document that defines allowed or denied actions over AWS resources.
 
-A virtual firewall that controls inbound and outbound traffic.
+## 5. Why should permissions be assigned through groups?
 
----
+Groups simplify administration and ensure that users with similar responsibilities receive consistent permissions.
 
-## What is the purpose of a Key Pair?
+## 6. What is MFA?
 
-To authenticate securely using SSH without passwords.
+Multi-Factor Authentication adds a second authentication factor in addition to the password.
 
----
+## 7. What is the principle of least privilege?
 
-## What is SSH?
+It consists of granting only the minimum permissions necessary to perform a specific task.
 
-Secure Shell protocol for remote administration.
+## 8. What is an explicit deny?
 
----
+An explicit deny is a policy statement that blocks an action and takes precedence over an allow statement.
 
-## Difference between Security Groups and NACL?
+## 9. Are IAM resources regional?
 
-Security Groups are stateful.
+IAM is a global AWS service. Users, groups, roles and policies are not created within a specific AWS region.
 
-Network ACLs are stateless.
+## 10. When should an IAM role be used instead of access keys?
 
----
-
-## What is an EBS volume?
-
-Persistent block storage attached to EC2.
-
----
-
-## What happens if the .pem file is lost?
-
-You cannot connect using SSH.
-
-A new key must be configured through another access method.
-
----
-
-## Why should port 22 not be open to 0.0.0.0/0?
-
-Because it exposes SSH to the Internet, increasing the attack surface.
+A role should be used whenever an AWS service or application requires temporary access to AWS resources, avoiding permanent credentials.
+````
