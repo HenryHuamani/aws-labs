@@ -73,6 +73,15 @@ Usuario IAM
 
 ---
 
+## Additional Documentation
+
+- [Technical Notes](notas.md)
+- [Commands and References](comandos.md)
+- [Interview Questions](preguntas.md)
+- [Troubleshooting Guide](troubleshooting.md)
+
+---
+
 ## Próximos pasos
 
 En el siguiente laboratorio se implementará una instancia Amazon EC2 y se utilizará el usuario IAM para administrarla.
