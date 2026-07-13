@@ -1,87 +1,119 @@
-# Laboratorio 01 - AWS IAM (Identity and Access Management)
+# AWS Identity and Access Management (IAM)
 
-## Objetivo
-
-Aprender a administrar el acceso a los recursos de AWS mediante la creación de usuarios, grupos y políticas de IAM, aplicando el principio de mínimo privilegio y habilitando mecanismos de autenticación segura.
-
----
-
-## Servicios utilizados
-
-- AWS IAM
-- AWS Management Console
+![AWS](https://img.shields.io/badge/AWS-IAM-orange)
+![Level](https://img.shields.io/badge/Level-Foundation-blue)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
 
 ---
 
-## Actividades realizadas
+# Overview
 
-- Creación de un usuario IAM para administración.
-- Creación del grupo **Administrators**.
-- Asociación de la política administrada **AdministratorAccess** al grupo.
-- Asignación del usuario al grupo.
-- Configuración de una contraseña para acceso a la consola.
-- Habilitación de autenticación multifactor (MFA).
-- Inicio de sesión utilizando el usuario IAM en lugar del usuario raíz.
+This laboratory introduces **AWS Identity and Access Management (IAM)**, the AWS service responsible for securely controlling authentication and authorization across AWS resources.
+
+During this lab, a secure administrative environment was created by implementing IAM users, groups, managed policies and Multi-Factor Authentication (MFA), following AWS security best practices.
 
 ---
 
-## Arquitectura
+# Objectives
+
+- Understand AWS IAM fundamentals.
+- Create IAM users.
+- Create IAM groups.
+- Attach AWS managed policies.
+- Configure Multi-Factor Authentication (MFA).
+- Access the AWS Management Console using IAM credentials.
+
+---
+
+# Architecture
+
+The architecture designed for this laboratory is available in:
+
+```
+architecture/
+```
+
+### Files
+
+- iam.drawio
+- iam.png
+- iam.svg
+
+---
+
+# Laboratory Activities
+
+- Create an IAM administrative user.
+- Create the **Administrators** group.
+- Attach the **AdministratorAccess** managed policy.
+- Enable Virtual MFA.
+- Validate console access using IAM credentials.
+
+---
+
+# Directory Structure
 
 ```text
-Usuario Root
-      │
-      ▼
-Administrators (Grupo IAM)
-      │
-      ▼
-AdministratorAccess (Política AWS)
-      │
-      ▼
-Usuario IAM
+01-IAM
+│
+├── architecture
+│   ├── source
+│   ├── export
+│   └── README.md
+│
+├── evidence
+│
+├── commands.md
+├── study-notes.md
+├── interview-questions.md
+├── troubleshooting.md
+└── README.md
 ```
 
 ---
 
-## Evidencias
+# Evidence
 
-| Evidencia | Descripción |
-|-----------|-------------|
-| 01-iam-dashboard.png | Consola principal de IAM |
-| 02-iam-user.png | Usuario IAM creado |
-| 03-group.png | Grupo Administrators |
-| 04-policy.png | Política AdministratorAccess asignada |
-| 05-mfa.png | MFA habilitado |
-| 06-login-iam-user.png | Inicio de sesión con usuario IAM |
+All screenshots collected during the laboratory are available under:
+
+```
+evidence/
+```
 
 ---
 
-## Buenas prácticas aplicadas
+# Skills Acquired
 
-- No utilizar el usuario Root para tareas diarias.
-- Agrupar permisos mediante grupos IAM.
-- Habilitar MFA para aumentar la seguridad.
-- Aplicar el principio de menor privilegio.
-
----
-
-## Lecciones aprendidas
-
-- Diferencia entre usuario Root e IAM.
-- Importancia del MFA.
-- Uso de grupos para simplificar la administración de permisos.
-- Las políticas administradas permiten asignar permisos de forma rápida.
+- AWS IAM
+- Identity Management
+- Authentication
+- Authorization
+- IAM Policies
+- IAM Groups
+- MFA
+- AWS Security Best Practices
 
 ---
 
-## Additional Documentation
+# AWS Best Practices Applied
 
-- [Technical Notes](notas.md)
-- [Commands and References](comandos.md)
-- [Interview Questions](preguntas.md)
-- [Troubleshooting Guide](troubleshooting.md)
+- Principle of Least Privilege
+- Avoid Root User
+- Enable MFA
+- Use IAM Groups
+- Use Managed Policies
 
 ---
 
-## Próximos pasos
+# References
 
-En el siguiente laboratorio se implementará una instancia Amazon EC2 y se utilizará el usuario IAM para administrarla.
+- https://docs.aws.amazon.com/IAM/
+- https://docs.aws.amazon.com/wellarchitected/
+
+---
+
+# Author
+
+Henry Junior Huamani
+
+AWS Cloud & DevOps Portfolio
