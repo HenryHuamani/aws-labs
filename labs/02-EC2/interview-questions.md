@@ -1,71 +1,324 @@
-# Interview Questions – Amazon EC2
+# Amazon EC2 - Interview Questions
+
+This document contains common interview questions related to **Amazon Elastic Compute Cloud (EC2)**, from basic concepts to advanced architectural scenarios.
+
+---
+
+# Basic Level
 
 ## 1. What is Amazon EC2?
 
-Amazon EC2 is an AWS compute service that provides resizable virtual servers in the cloud.
+Amazon EC2 (Elastic Compute Cloud) is AWS's Infrastructure as a Service (IaaS) that provides scalable virtual servers in the cloud.
 
-## 2. What is an AMI?
+It allows users to launch, manage, and terminate virtual machines without owning physical hardware.
 
-An AMI is a template containing the operating system, software and configuration required to launch an EC2 instance.
+---
 
-## 3. What is an EC2 instance type?
+## 2. What is an EC2 Instance?
 
-An instance type defines the amount of CPU, memory, networking capacity and other resources assigned to an EC2 instance.
+An EC2 Instance is a virtual machine running on AWS infrastructure.
 
-## 4. What is the difference between stopping and terminating an EC2 instance?
+It consists of:
 
-Stopping powers off the instance while preserving its supported EBS volumes and configuration.
+- CPU
+- Memory
+- Storage
+- Network
+- Operating System
 
-Terminating permanently deletes the instance and may also delete attached volumes configured for deletion.
+---
 
-## 5. What is a Security Group?
+## 3. What is an AMI?
 
-A Security Group is a stateful virtual firewall that controls inbound and outbound traffic for AWS resources.
+An Amazon Machine Image (AMI) is a template used to launch EC2 instances.
 
-## 6. Why is a Security Group considered stateful?
+It contains:
 
-When inbound traffic is allowed, the response traffic is automatically allowed without requiring a separate outbound rule.
+- Operating System
+- Installed Software
+- Configuration
+- Storage Mapping
 
-## 7. What is the purpose of an EC2 key pair?
+---
 
-A key pair is used to authenticate securely to a Linux EC2 instance using SSH.
+## 4. What is an Instance Type?
 
-## 8. What happens if the private key is lost?
+Instance Types define the hardware resources allocated to an EC2 instance.
 
-The original private key cannot be downloaded again. Access must be restored through another method, such as Session Manager, EC2 Instance Connect, volume recovery or another authorized user.
+Examples:
 
-## 9. What is the difference between a public IP and an Elastic IP?
+- t2.micro
+- t3.medium
+- m5.large
+- c6i.large
+- r6g.large
 
-A default public IP may change after the instance is stopped and started.
+---
 
-An Elastic IP is static and remains allocated until it is released.
+## 5. What is Amazon EBS?
 
-## 10. What is Amazon EBS?
+Amazon Elastic Block Store (EBS) provides persistent block storage for EC2 instances.
 
-Amazon EBS provides persistent block storage volumes that can be attached to EC2 instances.
+EBS volumes remain available even if an instance is stopped.
 
-## 11. What is the difference between a Security Group and a Network ACL?
+---
 
-Security Groups are stateful and operate at the instance or network-interface level.
+# Intermediate Level
 
-Network ACLs are stateless and operate at the subnet level.
+## 6. What is a Security Group?
 
-## 12. Why should port 22 not be open to the entire Internet?
+A Security Group is a virtual firewall attached to an EC2 instance.
 
-Allowing `0.0.0.0/0` increases the attack surface and exposes the SSH service to scanning and brute-force attempts.
+It controls:
 
-## 13. What user is commonly used for Ubuntu EC2 instances?
+- Inbound traffic
+- Outbound traffic
 
-The default user is usually:
+Security Groups are **stateful**.
 
-```text
-ubuntu
-```
+---
 
-## 14. How can an EC2 instance access S3 securely?
+## 7. What is a Key Pair?
 
-The recommended approach is to attach an IAM role to the instance instead of storing permanent access keys on the server.
+A Key Pair is used to securely authenticate to an EC2 instance using SSH.
 
-## 15. How can EC2 instances be monitored?
+It consists of:
 
-EC2 instances can be monitored using Amazon CloudWatch metrics, logs and alarms.
+- Public Key (stored by AWS)
+- Private Key (.pem) (stored by the administrator)
+
+---
+
+## 8. Why is password authentication disabled by default on Ubuntu EC2 instances?
+
+Because SSH key authentication is significantly more secure than password-based authentication.
+
+---
+
+## 9. What is the EC2 Instance Lifecycle?
+
+The lifecycle is:
+
+Pending
+
+↓
+
+Running
+
+↓
+
+Stopping
+
+↓
+
+Stopped
+
+↓
+
+Starting
+
+↓
+
+Running
+
+↓
+
+Terminated
+
+---
+
+## 10. What happens when an EC2 instance is stopped?
+
+- Compute billing stops.
+- EBS volumes remain.
+- Public IPv4 may change (unless using Elastic IP).
+- Data stored on EBS persists.
+
+---
+
+# Advanced Level
+
+## 11. What is the difference between Stop, Reboot, and Terminate?
+
+| Action | Result |
+|----------|--------|
+| Stop | Instance shuts down, EBS persists |
+| Reboot | Operating system restarts |
+| Terminate | Instance is permanently deleted |
+
+---
+
+## 12. What is the difference between Security Groups and Network ACLs?
+
+| Security Group | Network ACL |
+|----------------|-------------|
+| Instance level | Subnet level |
+| Stateful | Stateless |
+| Allow rules only | Allow and Deny rules |
+
+---
+
+## 13. What are the EC2 purchasing options?
+
+- On-Demand
+- Reserved Instances
+- Spot Instances
+- Savings Plans
+- Dedicated Hosts
+
+---
+
+## 14. When would you use Spot Instances?
+
+Spot Instances are ideal for interruptible workloads such as:
+
+- Batch processing
+- Data analytics
+- Rendering
+- CI/CD jobs
+
+---
+
+## 15. Why would you use an Elastic IP?
+
+Elastic IP provides a static public IPv4 address that remains associated with your AWS account until released.
+
+---
+
+## 16. How can you improve EC2 security?
+
+Possible answers:
+
+- Use Security Groups.
+- Enable IAM Roles.
+- Restrict SSH to trusted IPs.
+- Enable CloudTrail.
+- Keep the OS updated.
+- Use MFA for administrators.
+- Avoid using the Root User.
+
+---
+
+## 17. What is User Data?
+
+User Data is a startup script executed automatically when an EC2 instance launches.
+
+It is commonly used to:
+
+- Install packages
+- Configure services
+- Deploy applications
+- Initialize environments
+
+---
+
+## 18. How would you make an EC2 application highly available?
+
+Typical architecture:
+
+- Multiple EC2 instances
+- Multiple Availability Zones
+- Application Load Balancer
+- Auto Scaling Group
+- Amazon RDS Multi-AZ
+
+---
+
+## 19. How would you reduce EC2 costs?
+
+Possible answers:
+
+- Stop unused instances.
+- Use Spot Instances.
+- Use Reserved Instances.
+- Right-size instances.
+- Monitor utilization with CloudWatch.
+
+---
+
+## 20. During this laboratory, what resources were created?
+
+- EC2 Instance
+- Security Group
+- Key Pair
+- EBS Volume
+- Public IPv4 Address
+
+---
+
+# Scenario-Based Questions
+
+## Scenario 1
+
+Your SSH connection suddenly stops working.
+
+What would you check first?
+
+Expected answer:
+
+- Security Group rules
+- Public IP
+- Instance state
+- Key Pair
+- SSH service
+- Network connectivity
+
+---
+
+## Scenario 2
+
+You accidentally delete your private key (.pem).
+
+Can you connect to the instance?
+
+Expected answer:
+
+No.
+
+You must either:
+
+- Create a new Key Pair through a recovery process, or
+- Attach the EBS volume to another instance to recover access.
+
+---
+
+## Scenario 3
+
+You need to host a public website.
+
+Which AWS services would you combine?
+
+Possible answer:
+
+- EC2
+- Security Groups
+- Application Load Balancer
+- Route 53
+- Amazon RDS
+- CloudFront
+- ACM
+
+---
+
+# Interview Tips
+
+A strong EC2 interview answer should include:
+
+- Security considerations
+- Scalability
+- Cost optimization
+- High availability
+- Monitoring
+- Best practices
+
+---
+
+# Key Takeaways
+
+- EC2 provides virtual machines in AWS.
+- AMIs define the operating system template.
+- EBS provides persistent storage.
+- Security Groups protect network access.
+- SSH uses Key Pair authentication.
+- Elastic IP provides a static public address.
+- EC2 supports multiple purchasing models for cost optimization.

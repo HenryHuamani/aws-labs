@@ -1,138 +1,292 @@
-# Troubleshooting – Amazon EC2 Laboratory
+# Amazon EC2 - Troubleshooting Guide
 
-## Case Study: SSH Private Key Permissions on Windows
+This document describes the issues encountered during **Lab 02 – Amazon Elastic Compute Cloud (EC2)** and the corresponding solutions.
 
-### Problem
+---
 
-The SSH connection could not authenticate to the EC2 instance.
+# Issue 1 - SSH Permission Denied (publickey)
 
-The following error was displayed:
+## Symptoms
 
-```text
-WARNING: UNPROTECTED PRIVATE KEY FILE!
-Permissions for '.\henry-key.pem' are too open.
-This private key will be ignored.
-Permission denied (publickey).
+```
+Permission denied (publickey)
 ```
 
-### Initial Diagnosis
+Connection could not be established using SSH.
 
-Detailed SSH output was generated with:
+---
+
+## Possible Causes
+
+- Incorrect username.
+- Wrong private key.
+- Invalid Key Pair.
+- Incorrect file permissions.
+- Security Group blocking port 22.
+
+---
+
+## Resolution
+
+Verify:
+
+- Instance is running.
+- Correct username (`ubuntu`).
+- Correct Key Pair.
+- SSH port (22) is allowed.
+- Private key permissions.
+
+Successful command:
 
 ```powershell
-ssh -vvv -i .\henry-key.pem ubuntu@PUBLIC_DNS
+ssh -i .\henry-key.pem ubuntu@ec2-public-dns
 ```
 
-The output confirmed that:
+---
 
-* The DNS name was resolved.
-* TCP port 22 was reachable.
-* The SSH handshake was completed.
-* The server supported public-key authentication.
-* The private key was rejected because its Windows permissions were too open.
+# Issue 2 - Unprotected Private Key File
 
-### Root Cause
+## Symptoms
 
-The private key could be read by additional Windows security groups, including:
-
-```text
-NT AUTHORITY\Authenticated Users
-BUILTIN\Usuarios
+```
+WARNING: UNPROTECTED PRIVATE KEY FILE!
 ```
 
-OpenSSH requires private keys to be accessible only by the owner or trusted system accounts.
+```
+Permissions are too open.
+```
 
-### Resolution
+OpenSSH refused to use the private key.
 
-Inherited permissions were removed:
+---
+
+## Cause
+
+Windows ACL permissions allowed other users to access the `.pem` file.
+
+OpenSSH requires that only the owner has read access.
+
+---
+
+## Resolution
+
+Disable inherited permissions:
 
 ```powershell
 icacls .\henry-key.pem /inheritance:r
 ```
 
-Access for authenticated users was removed:
+Remove the built-in Users group:
 
 ```powershell
-icacls .\henry-key.pem /remove "NT AUTHORITY\Authenticated Users"
+icacls .\henry-key.pem /remove "BUILTIN\Users"
 ```
 
-Access for the built-in Users group was removed:
-
-```powershell
-icacls .\henry-key.pem /remove "BUILTIN\Usuarios"
-```
-
-Read access was granted to the owner:
-
-```powershell
-icacls .\henry-key.pem /grant "DESKTOP-MTQQR2P\PC:(R)"
-```
-
-The permissions were verified with:
+Verify permissions:
 
 ```powershell
 icacls .\henry-key.pem
 ```
 
-The SSH connection was then completed successfully.
+Expected result:
 
-## Other Common SSH Problems
-
-### Connection Timed Out
-
-Possible causes:
-
-* Port 22 is not allowed in the Security Group.
-* The source IP is incorrect.
-* The instance does not have a public IP.
-* The route table does not provide Internet access.
-* A Network ACL blocks the traffic.
-
-### Permission Denied (Public Key)
-
-Possible causes:
-
-* Incorrect private key.
-* Incorrect operating-system username.
-* The key pair does not match the instance.
-* Private-key permissions are insecure.
-* The public key is missing from `authorized_keys`.
-
-### Connection Refused
-
-Possible causes:
-
-* SSH service is not running.
-* The operating system has not completed startup.
-* The instance firewall blocks TCP port 22.
-
-### Host Key Warning
-
-A warning may appear when the public IP or server identity changes:
-
-```text
-REMOTE HOST IDENTIFICATION HAS CHANGED
+```
+DESKTOP-XXXX\User:(R)
+SYSTEM:(F)
+Administrators:(F)
 ```
 
-Remove the obsolete entry only after verifying the new server identity:
+Retry the SSH connection:
 
 ```powershell
-ssh-keygen -R PUBLIC_DNS
+ssh -i .\henry-key.pem ubuntu@ec2-public-dns
 ```
 
-## Lessons Learned
+---
 
-* Network connectivity and authentication are separate SSH stages.
-* Verbose SSH output helps identify the exact failure point.
-* Windows permissions can prevent OpenSSH from using a valid private key.
-* Security Group rules should restrict SSH access to trusted addresses.
-* Private keys must remain outside the repository.
+# Issue 3 - Connection Closed by Port 22
 
-## Best Practices
+## Symptoms
 
-* Store private keys in the user's `.ssh` directory.
-* Never commit `.pem` files to Git.
-* Use `.gitignore` as an additional protection.
-* Use IAM roles for AWS access from EC2.
-* Prefer temporary credentials.
-* Consider AWS Systems Manager Session Manager to reduce direct SSH exposure.
+```
+Connection closed by <ip-address> port 22
+```
+
+---
+
+## Possible Causes
+
+- Incorrect username.
+- SSH daemon not accepting authentication.
+- Invalid Key Pair.
+
+---
+
+## Resolution
+
+Confirm:
+
+- Username is `ubuntu`.
+- Correct Key Pair is used.
+- Instance is fully initialized.
+- Security Group allows SSH.
+
+---
+
+# Issue 4 - Unable to Connect Using SSH
+
+## Symptoms
+
+SSH connection times out.
+
+---
+
+## Possible Causes
+
+- Port 22 blocked.
+- Wrong Public IP or DNS.
+- Instance stopped.
+- Network connectivity issues.
+
+---
+
+## Resolution
+
+Verify:
+
+- EC2 instance is in **Running** state.
+- Public IPv4 address.
+- Public DNS name.
+- Security Group inbound rules.
+- Internet connection.
+
+---
+
+# Issue 5 - Security Group Misconfiguration
+
+## Symptoms
+
+Connection refused or timeout.
+
+---
+
+## Cause
+
+Inbound rule for SSH (TCP 22) was missing or restricted.
+
+---
+
+## Resolution
+
+Configure the Security Group:
+
+| Type | Protocol | Port | Source |
+|------|----------|------|--------|
+| SSH | TCP | 22 | My IP |
+
+Avoid opening SSH to:
+
+```
+0.0.0.0/0
+```
+
+unless absolutely necessary.
+
+---
+
+# Issue 6 - Lost Private Key
+
+## Problem
+
+The `.pem` file is deleted or lost.
+
+---
+
+## Impact
+
+SSH authentication is no longer possible using the original Key Pair.
+
+---
+
+## Resolution
+
+Possible recovery options:
+
+- Create a new instance.
+- Attach the EBS volume to another instance.
+- Replace the authorized SSH key using recovery procedures.
+
+---
+
+# Issue 7 - EC2 Instance Not Reachable
+
+## Symptoms
+
+The instance appears online but cannot be accessed.
+
+---
+
+## Possible Causes
+
+- Security Group configuration.
+- Incorrect Public IP.
+- SSH service stopped.
+- Operating system issue.
+
+---
+
+## Resolution
+
+Verify:
+
+- EC2 Status Checks.
+- Security Group.
+- Public IPv4 address.
+- Instance System Log.
+- EC2 Instance Connect (if available).
+
+---
+
+# Commands Used During Troubleshooting
+
+```powershell
+ssh -vvv -i .\henry-key.pem ubuntu@ec2-public-dns
+```
+
+```powershell
+icacls .\henry-key.pem
+```
+
+```powershell
+icacls .\henry-key.pem /inheritance:r
+```
+
+```powershell
+icacls .\henry-key.pem /remove "BUILTIN\Users"
+```
+
+```powershell
+ssh -i .\henry-key.pem ubuntu@ec2-public-dns
+```
+
+---
+
+# Lessons Learned
+
+- Windows file permissions can prevent OpenSSH from using a private key.
+- Security Groups are the first component to verify when SSH fails.
+- Always keep a backup of the private key.
+- Use verbose mode (`ssh -vvv`) to diagnose connection issues.
+- Restrict SSH access to trusted IP addresses.
+
+---
+
+# Laboratory Outcome
+
+Successfully completed:
+
+- EC2 Instance deployment.
+- Security Group configuration.
+- SSH connectivity.
+- Windows private key permission correction.
+- Secure remote administration using PowerShell.
