@@ -383,6 +383,20 @@ Network ACLs
 
 ---
 
+# Related AWS Services
+
+- IAM
+- EC2
+- S3
+- VPC
+- CloudWatch
+
+## Next Laboratory
+
+Amazon S3
+
+---
+
 # References
 
 https://docs.aws.amazon.com/ec2/
