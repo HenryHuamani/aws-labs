@@ -161,13 +161,39 @@ Password authentication is disabled by default for improved security.
 
 # Evidence
 
-All screenshots collected during this laboratory are available under:
+## EC2 Dashboard
 
-```
+![EC2 Dashboard](evidence/01-ec2-dashboard.png)
 
-evidence/
+---
 
-```
+## Instance Details
+
+![Instance Details](evidence/02-instance-details.png)
+
+---
+
+## Security Group
+
+![Security Group](evidence/03-security-group.png)
+
+---
+
+## SSH Connection Error
+
+![SSH Error](evidence/04-connect-error.png)
+
+---
+
+## Windows Permission Error
+
+![Permission Error](evidence/05-ssh-permissions-error.png)
+
+---
+
+## Successful SSH Connection
+
+![SSH Success](evidence/06-ssh-success.png)
 
 ---
 
