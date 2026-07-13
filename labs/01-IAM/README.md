@@ -30,7 +30,7 @@ During this lab, a secure administrative environment was created by implementing
 The architecture designed for this laboratory is available in:
 
 ```
-architecture/
+![AWS IAM Architecture](architecture/export/iam.png)
 ```
 
 ### Files
