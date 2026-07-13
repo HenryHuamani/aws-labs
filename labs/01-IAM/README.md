@@ -72,11 +72,39 @@ The architecture designed for this laboratory is shown below:
 
 # Evidence
 
-All screenshots collected during the laboratory are available under:
+## AWS IAM Dashboard
 
-```
-evidence/
-```
+![IAM Dashboard](evidence/01-iam-dashboard.png)
+
+---
+
+## IAM User
+
+![IAM User](evidence/02-iam-user.png)
+
+---
+
+## IAM Group
+
+![IAM Group](evidence/03-group.png)
+
+---
+
+## AdministratorAccess Policy
+
+![Policy](evidence/04-policy.png)
+
+---
+
+## Virtual MFA
+
+![MFA](evidence/05-mfa.png)
+
+---
+
+## Successful IAM Login
+
+![Login](evidence/06-login-iam-user.png)
 
 ---
 
