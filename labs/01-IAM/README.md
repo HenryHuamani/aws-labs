@@ -27,17 +27,15 @@ During this lab, a secure administrative environment was created by implementing
 
 # Architecture
 
-The architecture designed for this laboratory is available in:
+The architecture designed for this laboratory is shown below:
 
-```
 ![AWS IAM Architecture](architecture/export/iam.png)
-```
 
-### Files
+## Files
 
-- iam.drawio
-- iam.png
-- iam.svg
+- `architecture/source/iam.drawio`
+- `architecture/export/iam.png`
+- `architecture/export/iam.svg`
 
 ---
 
