@@ -262,8 +262,8 @@ Instead of exposing the bucket publicly:
 
 After completing this laboratory you should be able to explain:
 
-- How Amazon S3 stores objects.
-- How a static website is published.
+- How Amazon S3 stores objects.X
+- How a static website is published.X
 - How Bucket Policies work.
 - How Versioning protects data.
 - How Lifecycle Rules optimize storage.
